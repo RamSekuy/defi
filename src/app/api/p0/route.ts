@@ -25,6 +25,23 @@ interface MidtransNotification {
   approval_code?: string;
 }
 
+export async function GET() {
+  return new Response("OK", { status: 200 });
+}
+
+export async function HEAD() {
+  return new Response(null, { status: 200 });
+}
+
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      Allow: "POST, GET, OPTIONS, HEAD",
+    },
+  });
+}
+
 export async function POST(req: NextRequest) {
   const body = (await req.json()) as MidtransNotification;
   const MIDTRANS_SERVER_KEY = process.env.MIDTRANS_SERVER_KEY || "";

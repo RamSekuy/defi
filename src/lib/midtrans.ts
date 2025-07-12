@@ -36,10 +36,13 @@ export const axiosMidtrans = axios.create({
 export async function createPaymentLink(_payload: CreatePaymentLinkRequest) {
   const payload = {
     customer_required: true,
+    usage_limit: 1,
     callbacks: {
       finish:
-        process.env.NEXT_PUBLIC_BASEURL + _payload.transaction_details.order_id,
+        process.env.NEXT_PUBLIC_BASEURL +
+        _payload.transaction_details.order_id.toUpperCase(),
     },
+
     ..._payload,
   };
   const { data } = await axiosMidtrans.post<CreatePaymentLinkResponse>(
