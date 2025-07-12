@@ -4,23 +4,17 @@ import { Button } from "@/components/ui/button";
 import { DrawerClose } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 import useDebounce from "@/hooks/useDebounce";
-import config from "@/smartContract/config";
 import { useCart } from "@/store/cart";
-import { Token } from "@/types/token";
 import { useState } from "react";
-
-const tokenList: Token[] = [
-  { address: "0x000000000", name: "Polygon", symbol: "POL" },
-  ...config.tokens,
-];
+import { gasTokens } from "@/store/cart";
 export function SelectTokenList() {
   const [search, setSearch] = useState<string>("");
-  const [tokens, setTokens] = useState<Token[]>(tokenList);
+  const [tokens, setTokens] = useState<string[]>(gasTokens);
   useDebounce(
     () => {
       setTokens(
-        tokenList.filter((token) =>
-          token.name.toLowerCase().includes(search.toLowerCase())
+        gasTokens.filter((token) =>
+          token.toLowerCase().includes(search.toLowerCase())
         )
       );
     },
@@ -44,19 +38,19 @@ export function SelectTokenList() {
   );
 }
 
-function SelectTokenButton({ token }: { token: Token }) {
+function SelectTokenButton({ token }: { token: string }) {
   const { setSelectedToken, selectedToken } = useCart((s) => s);
   return (
     <DrawerClose asChild>
       <Button
-        disabled={selectedToken === token}
+        disabled={selectedToken?.name === token}
         className="w-full"
         variant="ghost"
         onClick={() => {
           setSelectedToken(token);
         }}
       >
-        {`${token.name} (${token.symbol})`}
+        {token}
       </Button>
     </DrawerClose>
   );

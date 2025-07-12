@@ -23,7 +23,6 @@ export default function Page() {
           <TransactionTabs />
         </TabsContent>
       </div>
-      <h1>NOT COMPLETE(Just Frontend)</h1>
     </Tabs>
   );
 }

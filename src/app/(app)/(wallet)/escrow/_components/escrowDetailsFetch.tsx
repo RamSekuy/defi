@@ -1,5 +1,5 @@
 import { CardContent } from "@/components/ui/card";
-import InteractionEscowDetails from "../_components/interactionEscowDetails";
+import InteractionEscowDetails from "./interactionEscowDetails";
 import {
   escrowContractReadOnly,
   escrowFactoryReadOnly,

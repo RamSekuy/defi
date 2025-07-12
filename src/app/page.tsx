@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center text-center p-4 h-dvh gap-6">
-      <h1 className="text-4xl font-bold">Welcome to RamSekuy DEFI</h1>
+      <h1 className="text-4xl font-bold">Welcome to RamSekuy Store</h1>
       <Link href={"/buy"}>
         <Button>Go</Button>
       </Link>

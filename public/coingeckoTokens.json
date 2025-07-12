@@ -1,0 +1,26 @@
+[
+  {
+    "id": "polygon-ecosystem-token",
+    "symbol": "pol",
+    "name": "POL (ex-MATIC)",
+    "rpc": "https://polygon-rpc.com"
+  },
+  {
+    "id": "polygon-ecosystem-token",
+    "symbol": "pol",
+    "name": "POL (amoy testnet)",
+    "rpc": "https://polygon-amoy.g.alchemy.com/v2/"
+  },
+  {
+    "id": "ronin",
+    "symbol": "ron",
+    "name": "Ronin",
+    "rpc": "https://api.roninchain.com/rpc"
+  },
+  {
+    "id": "ethereum",
+    "symbol": "eth",
+    "name": "Ethereum Base",
+    "rpc": "https://mainet.base.org"
+  }
+]
